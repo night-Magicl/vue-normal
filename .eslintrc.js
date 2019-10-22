@@ -3,7 +3,11 @@
 module.exports = {
   root: true,
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    sourceType: 'module',
+    ecmaFeatures: {
+        jsx: true
+    }
   },
   env: {
     browser: true,
@@ -12,16 +16,18 @@ module.exports = {
     // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
     // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
     'plugin:vue/essential',
-    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-    'standard'
+    'prettier'
   ],
   // required to lint *.vue files
   plugins: [
-    'vue'
+    'vue',
+    'prettier'
   ],
   // add your custom rules here
   rules: {
-    'semi': ['error', 'always'],
+    'prettier/prettier': 'error',
+    //   分号是否需要
+    // 'semi': ['error', 'always'],
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
